@@ -1,6 +1,7 @@
 {
   "name": "toast-lib",
   "version": "1.0.0",
+  "homepage": "http://Fritterus.github.io/Toast-lib",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -13,6 +14,8 @@
     "eslint:fix": "eslint --fix --ext .js,.ts,.jsx,.tsx,.json src",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,json} --config ./.prettierrc",
     "storybook": "start-storybook -p 6006",
+    "predeploy": "yarn build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "build-storybook"
   },
   "author": "Egor Kardash",
@@ -49,6 +52,7 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sonarjs": "^0.15.0",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
