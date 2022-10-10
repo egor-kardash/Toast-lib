@@ -16,7 +16,7 @@ yarn add toast-lib
 
 ## Demo
 
-[Open demo](http://Fritterus.github.io/Toast-lib)
+[Open demo](https://6343c0bc7b47cd6de45b2178-kuzlxozduq.chromatic.com/?path=/story/toast-library--toast)
 
 ## Usage
 
