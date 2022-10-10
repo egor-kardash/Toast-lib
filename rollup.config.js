@@ -6,6 +6,7 @@ import alias from '@rollup/plugin-alias';
 import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
+import svgr from '@svgr/rollup';
 
 const pkg = require('./package.json');
 
@@ -25,15 +26,18 @@ export default [
       },
     ],
     plugins: [
+      alias({
+        resolve: ['.js, .ts', '.jsx', '.tsx'],
+        entries: [{ find: '@', replacement: './src' }],
+      }),
+      svgr(),
       peerDepsExternal(),
-      resolve(),
+      resolve({
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       terser(),
-      alias({
-        resolve: ['.js, .ts', '.jsx', '.tsx'],
-        entries: [{ find: '~', replacement: './src' }],
-      }),
     ],
   },
   {

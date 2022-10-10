@@ -2,9 +2,9 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ToastFactory } from '../components/ToastFactory';
-import { ButtonType } from '../enums';
-import theme from '../theme';
+import { ToastFactory } from '@/components/ToastFactory';
+import theme from '@/theme';
+import { ButtonType } from '@/types';
 
 export default {
   title: 'Toast library',
@@ -16,7 +16,7 @@ export default {
       },
     },
     position: {
-      options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
+      options: ['left', 'right'],
       control: {
         type: ButtonType.InlineRadio,
       },
@@ -35,7 +35,12 @@ export default {
       },
     },
     animationType: {
-      options: ['right-to-left', 'left-to-right', 'top-to-bottom', 'bottom-to-top'],
+      options: [
+        'right-to-left',
+        'left-to-right',
+        'top-to-bottom',
+        'bottom-to-top',
+      ],
       control: {
         type: ButtonType.InlineRadio,
       },
@@ -70,12 +75,14 @@ export default {
   },
 } as ComponentMeta<typeof ToastFactory>;
 
-const Template: ComponentStory<typeof ToastFactory> = (args) => <ToastFactory {...args} />;
+const Template: ComponentStory<typeof ToastFactory> = (args) => (
+  <ToastFactory {...args} />
+);
 
 export const Toast = Template.bind({});
 Toast.args = {
   type: 'Success',
-  position: 'top-left',
+  position: 'left',
   isAutoDeleted: false,
   showDuration: 3000,
   animationType: 'top-to-bottom',

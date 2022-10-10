@@ -42,7 +42,10 @@
         "restrictedNamedExports": ["then"]
       }
     ],
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/function-component-definition": [
       2,
@@ -66,11 +69,21 @@
     "no-shadow": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
+    "react/destructuring-assignment": "off",
+    "no-console": "off",
+    "sort-imports": [
+      "error",
+      { "ignoreCase": true, "ignoreDeclarationSort": true }
+    ],
     "import/order": [
       "error",
       {
-        "groups": [["external", "builtin"], "internal", ["sibling", "parent"], "index"],
+        "groups": [
+          ["external", "builtin"],
+          "internal",
+          ["sibling", "parent"],
+          "index"
+        ],
         "pathGroups": [
           {
             "pattern": "@(react|react-native)",
