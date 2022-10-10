@@ -1,6 +1,7 @@
 .vscode
 .git
 node_modules
+storybook-static
 dist
 yarn-debug.log*
 yarn-error.log*
