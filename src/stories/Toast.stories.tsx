@@ -16,13 +16,12 @@ export default {
       },
     },
     position: {
-      options: ['left', 'right'],
+      options: ['left', 'center' , 'right'],
       control: {
         type: ButtonType.InlineRadio,
       },
     },
     isAutoDeleted: {
-      defaultValue: false,
       control: {
         type: 'boolean',
       },
@@ -83,7 +82,7 @@ export const Toast = Template.bind({});
 Toast.args = {
   type: 'Success',
   position: 'left',
-  isAutoDeleted: false,
+  isAutoDeleted: true,
   showDuration: 3000,
   animationType: 'top-to-bottom',
 };

@@ -1,2 +1,2 @@
-export { ToastFactory } from './components/ToastFactory';
-export { toastService } from './services/toastService';
+export { ToastFactory } from '@/components/ToastFactory';
+export { useToastContainer } from '@/hooks/useToastContainer';

@@ -1,7 +1,7 @@
 import React, {
   forwardRef,
-  useEffect,
   useCallback,
+  useEffect,
   useImperativeHandle,
   useState,
 } from 'react';
@@ -17,7 +17,7 @@ import { Container } from './styled';
 export const ToastContainer = forwardRef<
   { addToast: (toast: IToast) => void },
   IToastContainer
->(({ isAutoDeleted, showDuration, spaces }, ref) => {
+>(({ isAutoDeleted = true, showDuration = 1500, spaces = 0 }, ref) => {
   const [toasts, setToasts] = useState<IToast[]>([]);
 
   const deleteToast = useCallback(
@@ -31,12 +31,12 @@ export const ToastContainer = forwardRef<
   useEffect(() => {
     if (isAutoDeleted && toasts.length) {
       const timer = setTimeout(() => {
-        deleteToast(toasts[toasts.length - 1].id)();
+        deleteToast(toasts[0].id as string)();
       }, showDuration);
 
       return () => clearTimeout(timer);
     }
-  }, [toasts, isAutoDeleted, showDuration]);
+  }, [toasts, isAutoDeleted, showDuration, deleteToast]);
 
   useImperativeHandle(ref, () => ({
     addToast(toast: IToast) {
@@ -54,7 +54,7 @@ export const ToastContainer = forwardRef<
             <Toast
               key={item.id}
               {...item}
-              handleDelete={deleteToast(item.id)}
+              handleDelete={deleteToast(item.id as string)}
             />
           ))}
         </Container>

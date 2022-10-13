@@ -19,9 +19,9 @@ export const Toast: FC<IToast> = memo(
     description,
     color,
     iconPath,
-    position,
-    animationType,
-    animationDuration,
+    position = 'left',
+    animationType = 'top-to-bottom',
+    animationDuration = 0.5,
     handleDelete,
   }) => (
     <Wrapper

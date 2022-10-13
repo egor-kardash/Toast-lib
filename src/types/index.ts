@@ -20,29 +20,28 @@ export enum ButtonType {
 }
 
 export interface IToastContent {
-  color: string;
+  color?: string;
 }
 
 export interface IAnimation {
-  animationType: string;
-  animationDuration: number;
+  animationType?: string;
+  animationDuration?: number;
 }
 
 export interface IToast extends IToastContent, IAnimation {
-  id: string;
+  id?: string;
   type: keyof typeof ToastType;
-  title: string;
+  title?: string;
   description: string;
-  position: string;
+  position?: string;
   iconPath?: string;
-  handleDelete: () => void;
+  handleDelete?: () => void;
 }
 
 export interface IToastContainer {
-  isAutoDeleted: boolean;
-  showDuration: number;
-  // position: string;
-  spaces: string;
+  isAutoDeleted?: boolean;
+  showDuration?: number;
+  spaces?: number;
 }
 
 export interface IToastStorybookProps extends IToast, IToastContainer {}

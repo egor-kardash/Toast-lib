@@ -1,39 +1,34 @@
-import React, { FC, useRef } from 'react';
+import React, { FC } from 'react';
 
 import { ToastContainer } from '@/components/ToastContainer';
+import { useToastContainer } from '@/hooks/useToastContainer';
 import { IToastStorybookProps } from '@/types';
 
 import { Button } from './styled';
 
 export const ToastFactory: FC<IToastStorybookProps> = ({
-  id,
   type,
   title,
   description,
   color,
   position,
-  iconPath,
   isAutoDeleted,
   showDuration,
   animationType,
   animationDuration,
   spaces,
-  handleDelete,
 }) => {
-  const toastRef = useRef<React.ElementRef<typeof ToastContainer>>(null);
-
+  const containerRef = useToastContainer();
+  
   const handleAdd = () => {
-    toastRef.current?.addToast({
-      id,
+    containerRef.current?.addToast({
       type,
       title,
       description,
       color,
-      iconPath,
       position,
       animationType,
       animationDuration,
-      handleDelete,
     });
   };
 
@@ -41,8 +36,7 @@ export const ToastFactory: FC<IToastStorybookProps> = ({
     <>
       <Button onClick={handleAdd}>Show Toast</Button>
       <ToastContainer
-        // position={position}
-        ref={toastRef}
+        ref={containerRef}
         isAutoDeleted={isAutoDeleted}
         showDuration={showDuration}
         spaces={spaces}

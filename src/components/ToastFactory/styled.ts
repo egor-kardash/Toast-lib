@@ -13,5 +13,4 @@ export const Button = styled.button`
   border-radius: ${theme.borderRadius[2]}px;
   font-size: ${theme.fontSizes[1]}px;
   box-shadow: ${theme.boxShadows} ${theme.colors.gray};
-  z-index: 1;
 `;
