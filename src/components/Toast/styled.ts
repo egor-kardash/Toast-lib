@@ -8,6 +8,7 @@ export const Wrapper = styled.div<IAnimation>`
   height: ${theme.percentageSizes[4]}%;
   flex-direction: column;
   user-select: none;
+  z-index: 1;
   font-family: ${theme.font};
   animation: ${({ animationType }) => animationType}
     ${({ animationDuration }) => animationDuration}s;
@@ -64,6 +65,10 @@ export const Wrapper = styled.div<IAnimation>`
 
   &.right {
     align-self: flex-end;
+  }
+
+  &.center {
+    align-self: center;
   }
 `;
 
