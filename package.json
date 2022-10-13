@@ -28,7 +28,9 @@
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
+    "@rollup/plugin-sucrase": "^5.0.0",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@rollup/plugin-url": "^8.0.0",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
@@ -45,7 +47,6 @@
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "babel-loader": "^8.2.5",
-    "chromatic": "^6.10.1",
     "eslint": "8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -70,5 +71,13 @@
     "uuid": "^9.0.0"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/styled-components": "^5.1.26",
+    "styled-components": "^5.3.5"
+  },
   "_id": "toast-lib@1.0.0"
 }
