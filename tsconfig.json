@@ -20,5 +20,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "images.d.ts"]
+  "include": ["src/**/*", "images.d.ts"],
+  "exclude": ["node_modules", "src/stories"]
 }
