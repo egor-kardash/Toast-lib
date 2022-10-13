@@ -5,7 +5,7 @@
 **npm**
 
 ```
-npm install toast-lib
+npm install toast-lib-k-react
 ```
 
 **yarn**
@@ -23,11 +23,13 @@ yarn add toast-lib
 ```jsx
 import React from 'react';
 
-import { ToastContainer, addToast } from 'toast-lib';
+import { ToastContainer, useToastContainer } from 'toast-lib-k-react';
 
 const App = () => {
+  const containerRef = useToastContainer();
+
   const showToast = () => {
-    addToast({
+    containerRef.current?.addToast({
       type: 'Warning',
       description: 'Toast example',
     });
@@ -36,7 +38,7 @@ const App = () => {
   return (
     <div>
       <button onClick={showToast}>Show toast</button>
-      <ToastContainer />
+      <ToastContainer ref={containerRef} />
     </div>
   );
 };
