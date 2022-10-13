@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import alias from '@rollup/plugin-alias';
+import babel from '@rollup/plugin-babel';
 import url from '@rollup/plugin-url';
 import svgr from '@svgr/rollup';
 
@@ -10,6 +11,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
 
 const pkg = require('./package.json');
+const extensions = ['.js, .ts', '.jsx', '.tsx'];
 
 export default [
   {
@@ -27,15 +29,19 @@ export default [
       },
     ],
     plugins: [
-      resolve(),
+      resolve({ extensions }),
       typescript({ tsconfig: './tsconfig.json' }),
+      babel({
+        exclude: 'node_module/**',
+        extensions,
+      }),
       peerDepsExternal(),
       commonjs(),
       terser(),
       url(),
       svgr({ icon: true }),
       alias({
-        resolve: ['.js, .ts', '.jsx', '.tsx'],
+        resolve: extensions,
         entries: [{ find: '@', replacement: './src' }],
       }),
     ],
