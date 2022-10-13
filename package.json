@@ -23,7 +23,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.19.1",
+    "@babel/core": "^7.19.3",
+    "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-commonjs": "^22.0.2",
@@ -74,9 +75,9 @@
   "peerDependencies": {
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@types/styled-components": "^5.1.26",
     "styled-components": "^5.3.5"
   },
   "_id": "toast-lib@1.0.0"
