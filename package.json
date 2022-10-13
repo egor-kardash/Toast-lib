@@ -18,7 +18,9 @@
     "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "build-storybook"
   },
-  "author": "Egor Kardash",
+  "author": {
+    "name": "Egor Kardash"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.19.1",
@@ -43,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.10.1",
     "eslint": "8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -66,5 +69,6 @@
     "typescript": "^4.8.3",
     "uuid": "^9.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "_id": "toast-lib@1.0.0"
 }
