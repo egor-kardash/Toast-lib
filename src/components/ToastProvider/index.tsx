@@ -6,11 +6,11 @@ import { toastService } from '@/services/toastService';
 import { IToastContainer } from '@/types';
 
 export const ToastProvider = (data: IToastContainer) => {
-  const containerRef = useToastContainer();
+  const toastRef = useToastContainer();
 
   useLayoutEffect(() => {
-    toastService.init(containerRef.current);
+    toastService.init(toastRef.current);
   }, []);
 
-  return <ToastContainer ref={containerRef} {...data} />;
+  return <ToastContainer ref={toastRef} {...data} />;
 };
