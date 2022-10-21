@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 import { ToastProvider } from '@/components/ToastProvider';
-import { IToastStorybookProps } from '@/types';
 import { toastService } from '@/services/toastService';
+import { IToastStorybookProps } from '@/types';
 
 import { Button } from './styled';
 
@@ -18,7 +18,6 @@ export const ToastFactory: FC<IToastStorybookProps> = ({
   animationDuration,
   spaces,
 }) => {
-  
   const handleAdd = () => {
     toastService.addToast({
       type,

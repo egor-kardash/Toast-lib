@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from 'react';
 
-import { toastService } from '@/services/toastService';
 import { ToastContainer } from '@/components/ToastContainer';
 import { useToastContainer } from '@/hooks/useToastContainer';
+import { toastService } from '@/services/toastService';
 import { IToastContainer } from '@/types';
 
 export const ToastProvider = (data: IToastContainer) => {

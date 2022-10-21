@@ -16,7 +16,7 @@ export default {
       },
     },
     position: {
-      options: ['left', 'center' , 'right'],
+      options: ['left', 'center', 'right'],
       control: {
         type: ButtonType.InlineRadio,
       },

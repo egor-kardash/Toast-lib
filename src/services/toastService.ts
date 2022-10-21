@@ -9,6 +9,7 @@ class ToastService {
   private static _instance?: ToastService;
 
   public toastList: IToast[] = [];
+
   private _toastRef?: showToastsRef | null;
 
   private constructor() {}

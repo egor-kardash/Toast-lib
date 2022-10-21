@@ -25,7 +25,7 @@ export const ToastContainer = forwardRef<
     (id: string) => () => {
       deleteToast(id);
     },
-    [],
+    [deleteToast],
   );
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export const ToastContainer = forwardRef<
 
       return () => clearTimeout(timer);
     }
-  }, [isAutoDeleted, showDuration, toastList]);
+  }, [isAutoDeleted, showDuration, toastList, deleteToast]);
 
   useImperativeHandle(ref, () => ({
     showToasts: forceUpdate,
