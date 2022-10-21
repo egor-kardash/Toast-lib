@@ -35,7 +35,7 @@ export interface IToast extends IToastContent, IAnimation {
   description: string;
   position?: string;
   iconPath?: string;
-  handleDelete?: () => void;
+  onDelete?: () => void;
 }
 
 export interface IToastContainer {

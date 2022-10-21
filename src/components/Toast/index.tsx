@@ -22,7 +22,7 @@ export const Toast: FC<IToast> = memo(
     position = 'left',
     animationType = 'top-to-bottom',
     animationDuration = 0.5,
-    handleDelete,
+    onDelete,
   }) => (
     <Wrapper
       id={id}
@@ -35,7 +35,7 @@ export const Toast: FC<IToast> = memo(
         <ToastIcon alt='Toast' src={iconPath} title='Toast type icon' />
         <Description>{description}</Description>
         <CloseIcon
-          onClick={handleDelete}
+          onClick={onDelete}
           alt='Close'
           src={CloseIconPath}
           title='Toast close icon'

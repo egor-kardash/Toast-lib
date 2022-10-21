@@ -3,7 +3,7 @@ import React, {
   useCallback,
   useEffect,
   useImperativeHandle,
-  useState,
+  useReducer,
 } from 'react';
 
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -15,46 +15,42 @@ import { IToast, IToastContainer } from '@/types';
 import { Container } from './styled';
 
 export const ToastContainer = forwardRef<
-  { addToast: (toast: IToast) => void },
+  { showToasts: () => void },
   IToastContainer
 >(({ isAutoDeleted = true, showDuration = 1500, spaces = 0 }, ref) => {
-  const [toasts, setToasts] = useState<IToast[]>([]);
+  const { toastList, deleteToast } = toastService;
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-  const deleteToast = useCallback(
+  const handleDeleteToast = useCallback(
     (id: string) => () => {
-      toastService.deleteToast(id);
-      setToasts(toastService.getAllToasts());
+      deleteToast(id);
     },
     [],
   );
 
   useEffect(() => {
-    if (isAutoDeleted && toasts.length) {
+    if (isAutoDeleted && toastList.length) {
       const timer = setTimeout(() => {
-        deleteToast(toasts[0].id as string)();
+        deleteToast(toastList[0].id as string);
       }, showDuration);
 
       return () => clearTimeout(timer);
     }
-  }, [toasts, isAutoDeleted, showDuration, deleteToast]);
+  }, [isAutoDeleted, showDuration, toastList]);
 
   useImperativeHandle(ref, () => ({
-    addToast(toast: IToast) {
-      const createdToast = toastService.createToast(toast);
-      toastService.addToast(createdToast);
-      setToasts(toastService.getAllToasts());
-    },
+    showToasts: forceUpdate,
   }));
 
   return (
     <ErrorBoundary>
       <ToastPortal>
         <Container spaces={spaces}>
-          {toasts.map((item: IToast) => (
+          {toastList.map((item: IToast) => (
             <Toast
               key={item.id}
               {...item}
-              handleDelete={deleteToast(item.id as string)}
+              onDelete={handleDeleteToast(item.id as string)}
             />
           ))}
         </Container>

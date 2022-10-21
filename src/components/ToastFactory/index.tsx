@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { ToastContainer } from '@/components/ToastContainer';
-import { useToastContainer } from '@/hooks/useToastContainer';
+import { ToastProvider } from '@/components/ToastProvider';
 import { IToastStorybookProps } from '@/types';
+import { toastService } from '@/services/toastService';
 
 import { Button } from './styled';
 
@@ -18,10 +18,9 @@ export const ToastFactory: FC<IToastStorybookProps> = ({
   animationDuration,
   spaces,
 }) => {
-  const containerRef = useToastContainer();
   
   const handleAdd = () => {
-    containerRef.current?.addToast({
+    toastService.addToast({
       type,
       title,
       description,
@@ -35,8 +34,7 @@ export const ToastFactory: FC<IToastStorybookProps> = ({
   return (
     <>
       <Button onClick={handleAdd}>Show Toast</Button>
-      <ToastContainer
-        ref={containerRef}
+      <ToastProvider
         isAutoDeleted={isAutoDeleted}
         showDuration={showDuration}
         spaces={spaces}
