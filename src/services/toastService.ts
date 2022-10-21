@@ -8,7 +8,7 @@ type showToastsRef = { showToasts: () => void };
 class ToastService {
   private static _instance?: ToastService;
   private _toastRef?: showToastsRef | null;
-  
+
   public toastList: IToast[] = [];
 
   private constructor() {}
