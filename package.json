@@ -1,5 +1,5 @@
 {
-  "name": "toast-lib-k-react",
+  "name": "react-toast-k-lib",
   "version": "1.0.0",
   "homepage": "http://Fritterus.github.io/Toast-lib",
   "main": "dist/cjs/index.js",
@@ -41,12 +41,12 @@
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "@svgr/rollup": "^6.4.0",
-    "@types/react": "^18.0.20",
-    "@types/react-dom": "^18.0.6",
-    "@types/styled-components": "^5.1.26",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.2.5",
     "eslint": "8.2.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -61,24 +61,23 @@
     "eslint-plugin-sonarjs": "^0.15.0",
     "gh-pages": "^4.0.0",
     "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup": "^2.79.0",
+    "rollup": "^3.1.0",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
-    "styled-components": "^5.3.5",
+    "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^4.8.3",
     "uuid": "^9.0.0"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@types/react": "^18.0.20",
-    "@types/react-dom": "^18.0.6",
-    "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.5"
   },
-  "_id": "toast-lib@1.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fritterus/Toast-lib"
+  },
+  "_id": "react-toast-k-lib@1.0.0"
 }
