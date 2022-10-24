@@ -39,9 +39,7 @@ class ToastService {
   }
 
   public addToast(toast: IToast) {
-    if (this.toastList.length < 3) {
-      this.toastList = [...this.toastList, this.createToast(toast)];
-    }
+    this.toastList = [...this.toastList, this.createToast(toast)];
     this._showToastsRef();
   }
 
