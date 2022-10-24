@@ -3,11 +3,9 @@ import { v4 as generateId } from 'uuid';
 import { toastIcons } from '@/helpers/toastProps';
 import { IToast, ToastColor } from '@/types';
 
-type showToastsRef = { showToasts: () => void };
-
 class ToastService {
   private static _instance?: ToastService;
-  private _toastRef?: showToastsRef | null;
+  private _showToastsRef!: () => void;
 
   public toastList: IToast[] = [];
 
@@ -20,10 +18,8 @@ class ToastService {
     return this._instance;
   }
 
-  public init(ref: showToastsRef | null) {
-    if (ref) {
-      this._toastRef = ref;
-    }
+  public init(ref: () => void) {
+    this._showToastsRef = ref;
   }
 
   public createToast(toastOptions: IToast) {
@@ -46,12 +42,12 @@ class ToastService {
     if (this.toastList.length < 3) {
       this.toastList = [...this.toastList, this.createToast(toast)];
     }
-    (this._toastRef as showToastsRef).showToasts();
+    this._showToastsRef();
   }
 
   public deleteToast = (toastId: string) => {
     this.toastList = this.toastList.filter((toast) => toast.id !== toastId);
-    (this._toastRef as showToastsRef).showToasts();
+    this._showToastsRef();
   };
 }
 
