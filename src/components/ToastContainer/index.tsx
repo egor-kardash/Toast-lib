@@ -46,7 +46,7 @@ export const ToastContainer = forwardRef<
     <ErrorBoundary>
       <ToastPortal>
         <Container spaces={spaces}>
-          {toastList.map((item: IToast) => (
+          {toastList.slice(0, 3).map((item: IToast) => (
             <Toast
               key={item.id}
               {...item}
