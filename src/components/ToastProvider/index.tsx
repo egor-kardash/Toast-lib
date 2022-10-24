@@ -9,7 +9,9 @@ export const ToastProvider = (data: IToastContainer) => {
   const toastRef = useToastContainer();
 
   useLayoutEffect(() => {
-    toastService.init(toastRef.current);
+    if (toastRef.current) {
+      toastService.init(toastRef.current.showToasts);
+    }
   }, []);
 
   return <ToastContainer ref={toastRef} {...data} />;
