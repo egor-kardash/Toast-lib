@@ -18,6 +18,7 @@ export default [
     input: 'src/index.ts',
     output: [
       {
+        external: ['react', 'react-dom', 'styled-components'],
         file: pkg.main,
         format: 'cjs',
         sourcemap: true,
